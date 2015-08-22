@@ -1,17 +1,43 @@
 package core;
 
-import interfaces.DatabaseInterface.showItems;
+import java.util.Date;
 
 public class Account {
 
-	private enum AccountType {
-		Standard, Checker, Admin
+	public static enum showItems {
+		mail, mobile, both
+	};
+	public static enum AccountType {
+		standard, checker, admin
 	}
-	private String userName, firstName, lastName, picture, mobile, mail;
+	public static enum AccountSex {
+		male, female
+	}
+	private Date birthDate;
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	private String userName, password, firstName, lastName, picture, mobile, mail;
 	private int id;
 	private showItems contact;
 	private AccountType type;
+	private AccountSex sex;
 	
+	public AccountSex getSex() {
+		return sex;
+	}
+	public void setSex(AccountSex sex) {
+		this.sex = sex;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public AccountType getType() {
 		return type;
 	}
@@ -65,6 +91,12 @@ public class Account {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	@Override
+	public String toString() {
+		String ans = "";
+		ans = ans.concat(userName + " " + firstName + " " + contact + " " + type);
+		return ans;
 	}
 	
 }

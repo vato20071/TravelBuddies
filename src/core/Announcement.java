@@ -1,22 +1,38 @@
 package core;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Announcement {
-	private List<String> cityList;
+	private Route route;
 	private Date announceDate, startDate, endDate;
-	private int availSlots;
+	private int availSlots, author, id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Announcement() {
-		cityList = new ArrayList<>();
+		route = new Route();
 		availSlots = 3;
 	}
-	public List<String> getCityList() {
-		return cityList;
+	public void setStartCity(String city) {
+		route.setStartCity(city);
 	}
-	public void setCityList(List<String> cityList) {
-		this.cityList = cityList;
+	public void setEndCity(String city) {
+		route.setEndCity(city);
+	}
+	public void addRouteCity(String city) {
+		route.addCity(city);
+	}
+	public int getAuthor() {
+		return author;
+	}
+	public Route getRoute() {
+		return route;
+	}
+	public void setAuthor(int author) {
+		this.author = author;
 	}
 	public Date getAnnounceDate() {
 		return announceDate;
@@ -35,6 +51,12 @@ public class Announcement {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	public int getAvailSlots() {
+		return availSlots;
+	}
+	public void setAvailSlots(int availSlots) {
+		this.availSlots = availSlots;
 	} 
 	
 }
